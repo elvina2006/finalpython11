@@ -3,6 +3,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class UserProfile (AbstractUser):
     age = models. PositiveSmallIntegerField(default=0, null=True, blank=True,
                                             validators=[MinValueValidator(15), MaxValueValidator(110)])
@@ -50,7 +51,7 @@ class Product(models.Model):
 
 
 class ProductPhotos(models.Model):
-    product = models.ForeignKey(Product, related_name='imagesx', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='product_images/')
 
 
